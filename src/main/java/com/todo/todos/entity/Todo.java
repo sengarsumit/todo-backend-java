@@ -1,4 +1,5 @@
 package com.todo.todos.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.todo.todos.entity.User;
 import com.todo.todos.model.TodoStatus;
 import jakarta.persistence.*;
@@ -30,6 +31,7 @@ public class Todo {
 
     @ManyToOne
     @JoinColumn(name="user_id", nullable=false)
+    @JsonIgnore
     private User user;
 
 }

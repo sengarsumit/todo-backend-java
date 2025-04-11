@@ -24,7 +24,7 @@ public class TodoController {
     @PostMapping
     public ResponseEntity<Todo> createTodo(@RequestBody Todo todo, Principal principal)
     {
-        User user=userService.findByEmail(principal.getName());
+        User user=userService.findByEmail("john@gmail.com");
         return ResponseEntity.ok(todoService.createTodo(todo,user));
     }
     @PutMapping("/{id}")
@@ -35,7 +35,7 @@ public class TodoController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteTodo(@PathVariable Long id, Principal principal) {
-        User user = userService.findByEmail(principal.getName());
+        User user = userService.findByEmail("john@gmail.com");
         todoService.deleteTodo(id, user);
         return ResponseEntity.noContent().build();
     }
